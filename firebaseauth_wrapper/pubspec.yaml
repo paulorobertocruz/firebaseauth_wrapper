@@ -1,4 +1,4 @@
-name: firestore_wrapper
+name: firebaseauth_wrapper
 version: 0.0.1
 description: Simple FirebaseAuth wrapper
 homepage: https://github.com/paulorobertocruz/firebaseauth_wrapper
