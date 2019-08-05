@@ -1,0 +1,11 @@
+name: firebaseauth_wrapper_web
+vertion: 0.0.1
+description: Simple FirebaseAuth wrapper
+environment:
+    sdk: '>=2.0.0 <3.0.0'
+dependencies:
+    firebase: ^5.0.3
+    firebaseauth_wrapper:
+        git:
+            url: https://github.com/paulorobertocruz/firebaseauth_wrapper.git
+            path: firebaseauth_wrapper

@@ -1,0 +1,14 @@
+name: firebaseauth_wrapper_flutter
+version: 0.0.1
+description: Simple FirebaseAuth wrapper
+homepage: https://github.com/paulorobertocruz/firebaseauth_wrapper
+environment:
+    sdk: '>=2.0.0 <3.0.0'
+dependencies:
+    flutter:
+        sdk: flutter
+    cloud_firestore: ^0.12.6
+    firestore_wrapper:
+        git:
+            url: https://github.com/paulorobertocruz/firebaseauth_wrapper.git
+            path: firebaseauth_wrapper
