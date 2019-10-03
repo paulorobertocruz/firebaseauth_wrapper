@@ -2,7 +2,7 @@ import 'package:firebase/firebase.dart' as fb;
 import 'package:firebaseauth_wrapper/firebaseauth_wrapper.dart' as w;
 
 class FirebaseAuth extends w.FirebaseAuth{
-  final fb.Auth _auth = fb.Auth.getInstance();
+  final fb.Auth _auth = fb.auth();
 
   @override
   Future<bool> loginWithEmailAndPassword(String email, String password) async {
