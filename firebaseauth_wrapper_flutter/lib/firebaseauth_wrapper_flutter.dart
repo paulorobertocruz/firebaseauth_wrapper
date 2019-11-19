@@ -38,6 +38,7 @@ class FirebaseAuth extends w.FirebaseAuth {
     return Future.delayed(Duration.zero);
   }
 
+  @override
   Future<UserCredential> createUserWithEmailAndPassword(
       String email, String password) async {
     var r = await _auth.createUserWithEmailAndPassword(
@@ -45,23 +46,28 @@ class FirebaseAuth extends w.FirebaseAuth {
     return UserCredential(r);
   }
 
+  @override
   Future<void> sendPasswordResetEmail(String email,
       [ActionCodeSettings actionCodeSettings]) {
     _auth.sendPasswordResetEmail(email: email);
   }
 
+  @override
   Future confirmPasswordReset(String code, String password) {
     return Future.value(false);
   }
 
+  @override
   Future<String> verifyPasswordResetCode(String code) {
     return Future.value(null);
   }
 
+  @override
   Future<ActionCodeInfo> checkActionCode(String code) {
     return Future.value(null);
   }
 
+  @override
   Future applyActionCode(String code) {
     return Future.value(null);
   }

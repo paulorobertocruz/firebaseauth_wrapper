@@ -25,10 +25,12 @@ packages:
   firebase:
     dependency: "direct main"
     description:
-      name: firebase
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.0.4"
+      path: "."
+      ref: HEAD
+      resolved-ref: d864d1c89515df979d640d42a571de32447f4e47
+      url: "https://github.com/FirebaseExtended/firebase-dart.git"
+    source: git
+    version: "7.0.0-dev"
   firebaseauth_wrapper:
     dependency: "direct main"
     description:

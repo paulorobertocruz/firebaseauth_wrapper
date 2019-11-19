@@ -1,7 +1,23 @@
 import 'package:firebase/firebase.dart' as fb;
 import 'package:firebaseauth_wrapper/firebaseauth_wrapper.dart' as w;
 
-class FirebaseAuth extends w.FirebaseAuth{
+class UserCredential extends w.UserCredential {
+  fb.UserCredential _r;
+  UserCredential(this._r);
+
+  get user => this._r.user;
+}
+
+class ActionCodeInfo extends w.ActionCodeInfo {
+  fb.ActionCodeInfo _r;
+  ActionCodeInfo(this._r);
+
+  dynamic get data => this._r.data;
+}
+
+class ActionCodeSettings extends w.ActionCodeSettings {}
+
+class FirebaseAuth extends w.FirebaseAuth {
   final fb.Auth _auth = fb.auth();
 
   @override
@@ -16,8 +32,8 @@ class FirebaseAuth extends w.FirebaseAuth{
 
   @override
   Stream<String> get onUserIdChange {
-    return _auth.onAuthStateChanged.map((firebaseUser){
-      return firebaseUser != null? firebaseUser.uid : null;
+    return _auth.onAuthStateChanged.map((firebaseUser) {
+      return firebaseUser != null ? firebaseUser.uid : null;
     });
   }
 
@@ -27,4 +43,37 @@ class FirebaseAuth extends w.FirebaseAuth{
     return Future.delayed(Duration.zero);
   }
 
+  @override
+  Future<UserCredential> createUserWithEmailAndPassword(
+      String email, String password) async {
+    var r = await _auth.createUserWithEmailAndPassword(email, password);
+    return UserCredential(r);
+  }
+
+  @override
+  Future<void> sendPasswordResetEmail(String email,
+      [ActionCodeSettings actionCodeSettings]) {
+    _auth.sendPasswordResetEmail(email);
+  }
+
+  @override
+  Future confirmPasswordReset(String code, String password) {
+    return _auth.confirmPasswordReset(code, password);
+  }
+
+  @override
+  Future<String> verifyPasswordResetCode(String code) {
+    return _auth.verifyPasswordResetCode(code);
+  }
+
+  @override
+  Future<ActionCodeInfo> checkActionCode(String code) async {
+    var r = await _auth.checkActionCode(code);
+    return ActionCodeInfo(r);
+  }
+
+  @override
+  Future applyActionCode(String code) {
+    return _auth.applyActionCode(code);
+  }
 }
