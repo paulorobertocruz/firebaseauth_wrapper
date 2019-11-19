@@ -1,4 +1,6 @@
-abstract class UserCredential {}
+abstract class UserCredential {
+  dynamic get user;
+}
 
 abstract class ActionCodeSettings {}
 
