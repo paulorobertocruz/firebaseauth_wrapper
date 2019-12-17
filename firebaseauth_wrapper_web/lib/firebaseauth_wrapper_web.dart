@@ -15,7 +15,6 @@ class ActionCodeInfo extends w.ActionCodeInfo {
   dynamic get data => this._r.data;
 }
 
-class ActionCodeSettings extends w.ActionCodeSettings {}
 
 class FirebaseAuth extends w.FirebaseAuth {
   final fb.Auth _auth = fb.auth();
@@ -51,8 +50,7 @@ class FirebaseAuth extends w.FirebaseAuth {
   }
 
   @override
-  Future<void> sendPasswordResetEmail(String email,
-      [ActionCodeSettings actionCodeSettings]) {
+  Future<void> sendPasswordResetEmail(String email) {
     _auth.sendPasswordResetEmail(email);
   }
 

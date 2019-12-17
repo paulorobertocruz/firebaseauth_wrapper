@@ -10,8 +10,6 @@ class UserCredential extends w.UserCredential {
 
 class ActionCodeInfo extends w.ActionCodeInfo {}
 
-class ActionCodeSettings extends w.ActionCodeSettings {}
-
 class FirebaseAuth extends w.FirebaseAuth {
   final fa.FirebaseAuth _auth = fa.FirebaseAuth.instance;
 
@@ -47,8 +45,7 @@ class FirebaseAuth extends w.FirebaseAuth {
   }
 
   @override
-  Future<void> sendPasswordResetEmail(String email,
-      [ActionCodeSettings actionCodeSettings]) {
+  Future<void> sendPasswordResetEmail(String email) {
     _auth.sendPasswordResetEmail(email: email);
   }
 
