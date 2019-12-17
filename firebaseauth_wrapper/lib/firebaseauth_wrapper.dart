@@ -2,8 +2,6 @@ abstract class UserCredential {
   dynamic get user;
 }
 
-abstract class ActionCodeSettings {}
-
 abstract class ActionCodeInfo {}
 
 abstract class FirebaseAuth {
@@ -14,8 +12,7 @@ abstract class FirebaseAuth {
   Future<UserCredential> createUserWithEmailAndPassword(
       String email, String password);
 
-  Future sendPasswordResetEmail(String email,
-      [ActionCodeSettings actionCodeSettings]);
+  Future sendPasswordResetEmail(String email);
   Future confirmPasswordReset(String code, String password);
   Future<String> verifyPasswordResetCode(String code);
   Future<ActionCodeInfo> checkActionCode(String code);
